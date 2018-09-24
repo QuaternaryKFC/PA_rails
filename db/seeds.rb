@@ -5,3 +5,35 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+require "json"
+
+courseJson = JSON.parse(File.open("./db/jsons/course.json").read)
+courses = []
+instructorJson = JSON.parse(File.open("./db/jsons/instructor.json").read)
+instructors = []
+subjectJson = JSON.parse(File.open("./db/jsons/subject.json").read)
+subjects = []
+
+courseJson.each do |course|
+  courses<<Course.new(code: course["code"],
+                      description: course["description"],
+                      name: course["name"])
+end
+
+instructorJson.each do |instructor|
+  instructors<<Instructor.new(id: instructor["id"],
+                              email: instructor["email"],
+                              first: instructor["first"],
+                              middle: instructor["middle"],
+                              last: instructor["last"])
+end
+
+subjectJson.each do |subject|
+  subjects<<Subject.new(id: subject["id"],
+                        name: subject["name"],
+                        abbreviation: subject["abbreviation"])
+end
+
+Course.import courses
+Instructor.import instructors
+Subject.import subjects
