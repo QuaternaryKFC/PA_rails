@@ -1,24 +1,41 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a work by **Fengzhencheng Zeng**  
+for 166b homework 16.4  
 
-Things you may want to cover:
+Heroku app link:  https://fz-pa-rails.herokuapp.com/  
+Private BitBucket repo: https://bitbucket.org/QuaternaryKFC/pa_rails/src/master/
 
-* Ruby version
+## APIs:
 
-* System dependencies
+* (home)  
+  Show lists of courses, instructors and subjects
 
-* Configuration
+* /courses  
+  Show the list of courses
+  * /id  
+  Show the details of a specific course
+  * /id/edit  
+  Edit the details of a specific course
+  * /new  
+  Add a new course
 
-* Database creation
 
-* Database initialization
+* /instructors  
+  Show the list of instructors
+  * /id  
+  Show the details of a specific instructor
+  * /id/edit  
+  Edit the details of a specific instructor
+  * /new  
+  Add a new instructor
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* /subjects  
+  show the list of subjects
+  * /id  
+  Show the details of a specific subject
+  * /id/edit  
+  Edit the details of a specific subject
+  * /new  
+  Add a new subject
