@@ -13,11 +13,16 @@ instructorJson = JSON.parse(File.open("./db/jsons/instructor.json").read)
 instructors = []
 subjectJson = JSON.parse(File.open("./db/jsons/subject.json").read)
 subjects = []
+coursesubs = []
 
 courseJson.each do |course|
   courses<<Course.new(code: course["code"],
                       description: course["description"],
                       name: course["name"])
+  coursesubs+=
+    course["subjects"]
+      .map{|subject| CourseSub.new(course_code: course["code"],
+                                   subject_id: subject["id"])}
 end
 
 instructorJson.each do |instructor|
@@ -37,3 +42,4 @@ end
 Course.import courses
 Instructor.import instructors
 Subject.import subjects
+CourseSub.import coursesubs

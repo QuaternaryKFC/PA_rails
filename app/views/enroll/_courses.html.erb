@@ -1,0 +1,21 @@
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Code</th>
+      <th scope="col">Description</th>
+      <th scope="col">Name</th>
+      <th colspan="4"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @courses.each do |course| %>
+      <tr scope="row">
+        <td><%= course.code %></td>
+        <td><%= course.description %></td>
+        <td><%= course.name %></td>
+        <td><%= link_to "Enroll", enroll_path(code: course.code), method: :post, class: "btn btn-primary" %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
