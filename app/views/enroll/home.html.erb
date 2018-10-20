@@ -12,26 +12,22 @@
 
 <div class="container">
   <%= form_tag(search_path,
-               method: :get) do %>
+               id: "search_form",
+               method: :get,
+               remote: true) do %>
     <div class="form-row">
       <div class="col-lg-4">
         <%= collection_select :subject, :id,
                               Subject.order(:name),
-                              :id, :name,
-                              {selected: @subject ? @subject.id : Subject.order(:name).first.id},
-                              {class: "custom-select"} %>
+                              :id, :name, {}, class: "custom-select", onchange: "Rails.fire(this.form, 'submit')" %>
       </div>
       <div class="col-lg-3">
-        <%= text_field_tag :course_name, params ? params[:course_name] : "", class: "form-control", placeholder: "Course name" %>
-      </div>
-      <div class="col-md-2 col-3">
-        <%= submit_tag "Search", class: "btn btn-primary" %>
+        <%= text_field_tag :course_name, "", class: "form-control", placeholder: "Course name", onchange: "Rails.fire(this.form, 'submit')" %>
       </div>
     </div>
   <% end %>
 </div>
 
-<div class="container">
+<div class="container" id="course_list">
   <%= render 'courses' %>
-  <hr>
 </div>
