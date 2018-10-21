@@ -7,7 +7,7 @@ class EnrollController < ApplicationController
   def search
     respond_to :js, :html
     @subject = Subject.find_by(id: params[:subject][:id])
-    @courses = @subject.courses.select{|c| c.name.downcase=~/.*#{params[:course_name].chomp}.*/}
+    @courses = @subject.courses.select{|c| c.name.downcase=~/.*#{params[:course_name].chomp.downcase}.*/}
   end
 
   def enroll
