@@ -6,7 +6,7 @@ class EnrollController < ApplicationController
 
   def search
     @subject = Subject.find_by(id: params[:subject][:id])
-    @courses = @subject.courses.select{|c| c.name.downcase=~/.*#{params[:course_name].chomp}.*/}
+    @courses = @subject.courses.select{|c| c.name.downcase=~/.*#{params[:course_name].chomp.downcase}.*/}
     render 'home'
   end
 
