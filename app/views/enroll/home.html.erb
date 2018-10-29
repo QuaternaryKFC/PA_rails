@@ -22,7 +22,7 @@
                               :id, :name, {}, class: "custom-select", onchange: "Rails.fire(this.form, 'submit')" %>
       </div>
       <div class="col-lg-3">
-        <%= text_field_tag :course_name, "", class: "form-control", placeholder: "Course name", onchange: "Rails.fire(this.form, 'submit')" %>
+        <%= text_field_tag :course_name, "", class: "form-control", placeholder: "Course name", oninput: "Rails.fire(this.form, 'submit')" %>
       </div>
     </div>
   <% end %>
